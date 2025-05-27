@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90 Dakikalık Çalışma Zamanlayıcısı</title>
+    <style>
+        body {
+            background-color: #d1f1dc;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .timer {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 40px 0;
+        }
+        .warning-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .warning-box strong {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>İyi çalışmalar! 😊 💻 📚</h1>
+    <p><strong>90 Dakikalık Çalışma Zamanlayıcısı</strong></p>
+    <p>Çalışma süreniz başladı. Başarılar! 💪</p>
+    <div class="timer" id="timer">90:00</div>
+
+    <div class="warning-box">
+        <p><strong>⚠️ Uyarı / Warning</strong></p>
+        <p><strong>TR:</strong> Bu uygulama sınav dönemlerinde çalışma alanlarını daha adil kullanmak amacıyla geliştirilmiştir. Masada geçireceğiniz süre 90 dakika ile sınırlıdır. Süre sonunda kısa bir anketle geri bildirim verebilirsiniz. Lütfen masayı süreniz sonunda başkalarına bırakmayı unutmayın.</p>
+        <p><strong>EN:</strong> This application is developed to ensure fair use of shared study areas during exam periods. Your time at the desk is limited to 90 minutes. A short feedback form will appear at the end. Please remember to leave the desk for others after your session ends.</p>
+    </div>
+
+    <script>
+        let time = 90 * 60;
+        const timerDisplay = document.getElementById("timer");
+        const interval = setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            timerDisplay.textContent = 
+                (minutes < 10 ? "0" : "") + minutes + ":" + 
+                (seconds < 10 ? "0" : "") + seconds;
+            time--;
+            if (time < 0) {
+                clearInterval(interval);
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfizx0o2TViANULB3_dEQFY_iIDPc0WIvO-jIUD1CivVrUqKw/viewform?usp=dialog";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
